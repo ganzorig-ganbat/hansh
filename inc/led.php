@@ -48,6 +48,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
       <?php 
         endforeach;
+      ?>
+      <?php
+        foreach( $response['huvitsaa'] as $stock):
+      ?>
+        <div class="stock-item">
+          <div class="label">
+            <span><?php echo $stock['label']; ?></span>
+          </div>
+          <div class="label">
+            <span class="yellow"><?php echo $stock['hansh']; ?></span>
+          </div>
+          <div class="label bg <?php if( strpos($stock['zuruu'], '-') !== false) echo 'bg-red'; else 'bg-green'; ?>">
+            <span><?php echo $stock['zuruu']; ?></span>
+            <span><?php echo $stock['huvi']; ?></span>
+          </div>
+        </div>
+      <?php 
+        endforeach;
         endif;
       ?>
         </div><!-- Marque item -->
